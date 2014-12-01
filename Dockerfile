@@ -5,12 +5,12 @@ MAINTAINER kirillf
 # Install prepare infrastructure
 RUN yum -y update && \
 	yum -y install wget && \
-	yum -y install tar
+	yum -y install tar 
 
 # Prepare environment 
 ENV JAVA_HOME /opt/java
 ENV CATALINA_HOME /opt/tomcat 
-ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin
+ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin:$CATALINA_HOME/scripts
 
 # Install Oracle Java7
 RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
@@ -28,6 +28,11 @@ RUN wget http://apache-mirror.rbc.ru/pub/apache/tomcat/tomcat-8/v8.0.15/bin/apac
 
 RUN chmod +x ${CATALINA_HOME}/bin/*sh
 
+# Create Tomcat admin user
+ADD create_admin_user.sh $CATALINA_HOME/scripts/create_admin_user.sh
+ADD tomcat.sh $CATALINA_HOME/scripts/tomcat.sh
+RUN chmod +x $CATALINA_HOME/scripts/*.sh
+
 # Create tomcat user
 RUN groupadd -r tomcat && \
 	useradd -g tomcat -d ${CATALINA_HOME} -s /sbin/nologin  -c "Tomcat user" tomcat && \
@@ -35,8 +40,9 @@ RUN groupadd -r tomcat && \
 
 WORKDIR /opt/tomcat
 
-EXPOSE 8009
 EXPOSE 8080
+EXPOSE 8009
+
 
 USER tomcat
-CMD ["catalina.sh","run"]
+CMD ["tomcat.sh"]

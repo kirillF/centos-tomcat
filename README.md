@@ -1,1 +1,1 @@
-Docker container: CentOs 7 + Java 7 + Tomcat 8
+Docker container: CentOS 7 + Java 8 + Tomcat 8

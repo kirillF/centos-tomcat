@@ -13,9 +13,9 @@ ENV CATALINA_HOME /opt/tomcat
 ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin:$CATALINA_HOME/scripts
 
 # Install Oracle Java8
-ENV JAVA_VERSION 8u121
-ENV JAVA_BUILD 8u121-b13
-ENV JAVA_DL_HASH e9e7ea248e2c4826b92b3f075a80e441
+ENV JAVA_VERSION 8u131
+ENV JAVA_BUILD 8u121-b11
+ENV JAVA_DL_HASH d54c1d3a095b4ff2b6607d096fa80163
 
 RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
  http://download.oracle.com/otn-pub/java/jdk/${JAVA_BUILD}/${JAVA_DL_HASH}/jdk-${JAVA_VERSION}-linux-x64.tar.gz && \
@@ -26,7 +26,7 @@ RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=acc
 
 # Install Tomcat
 ENV TOMCAT_MAJOR 8
-ENV TOMCAT_VERSION 8.5.13
+ENV TOMCAT_VERSION 8.5.15
 
 RUN wget http://ftp.riken.jp/net/apache/tomcat/tomcat-${TOMCAT_MAJOR}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
  tar -xvf apache-tomcat-${TOMCAT_VERSION}.tar.gz && \

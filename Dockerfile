@@ -1,5 +1,5 @@
 # Centos based container with Java and Tomcat
-FROM centos:centos7
+FROM centos:centos6
 MAINTAINER kirillf
 
 # Install prepare infrastructure

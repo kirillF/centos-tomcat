@@ -1,6 +1,6 @@
 # Centos based container with Java and Tomcat
-FROM centos:centos7
-MAINTAINER kirillf
+FROM centos:centos
+MAINTAINER tiaohuali
 
 # Install prepare infrastructure
 RUN yum -y update && \

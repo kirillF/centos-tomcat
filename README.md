@@ -27,7 +27,7 @@ If you got error while build the docker image, please check the latest version o
 |Software|Version|Note|
 |:-----------|:------------|:------------|
 |CentOS|7||
-|Java|8u162|[Java Release Note](http://www.oracle.com/technetwork/java/javase/8u-relnotes-2225394.html)|
-|Apache Tomcat|8.5.28|[Tomcat Download Page](http://tomcat.apache.org/download-80.cgi)|
+|Java|12.0.2[Java Release Note](https://www.oracle.com/technetwork/java/javase/12-0-2-relnotes-5480112.html)|
+|Apache Tomcat|9.0.22|[Tomcat Download Page](https://tomcat.apache.org/download-90.cgi)|
 
 [Docker Official Image for Tomcat](https://github.com/docker-library/tomcat) is also available.

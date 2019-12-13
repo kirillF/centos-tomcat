@@ -8,25 +8,23 @@ RUN yum -y update && \
  yum -y install tar
 
 # Prepare environment 
-ENV JAVA_HOME /opt/java
+ENV JAVA_HOME /usr/java/latest
 ENV CATALINA_HOME /opt/tomcat 
 ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin:$CATALINA_HOME/scripts
 
 # Install Oracle Java8
-ENV JAVA_VERSION 8u191
-ENV JAVA_BUILD 8u191-b12
-ENV JAVA_DL_HASH 2787e4a523244c269598db4e85c51e0c
+ENV JAVA_VERSION 12.0.2
+ENV JAVA_BUILD 12.0.2+10
+ENV JAVA_DL_HASH e482c34c86bd4bf8b56c0b35558996b9
 
 RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
- http://download.oracle.com/otn-pub/java/jdk/${JAVA_BUILD}/${JAVA_DL_HASH}/jdk-${JAVA_VERSION}-linux-x64.tar.gz && \
- tar -xvf jdk-${JAVA_VERSION}-linux-x64.tar.gz && \
- rm jdk*.tar.gz && \
- mv jdk* ${JAVA_HOME}
+ https://download.oracle.com/otn-pub/java/jdk/${JAVA_BUILD}/${JAVA_DL_HASH}/jdk-${JAVA_VERSION}_linux-x64_bin.rpm && \
+ yum -y localinstall jdk*
 
 
 # Install Tomcat
-ENV TOMCAT_MAJOR 8
-ENV TOMCAT_VERSION 8.5.35
+ENV TOMCAT_MAJOR 9
+ENV TOMCAT_VERSION 9.0.30
 
 RUN wget http://mirror.linux-ia64.org/apache/tomcat/tomcat-${TOMCAT_MAJOR}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
  tar -xvf apache-tomcat-${TOMCAT_VERSION}.tar.gz && \

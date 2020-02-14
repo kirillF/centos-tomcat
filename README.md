@@ -1,4 +1,4 @@
-Docker container: CentOS 7 + Java 8 + Tomcat 8
+Docker container: CentOS 7 + Java 12 + Tomcat 9
 
 ## Build the image
 

@@ -12,19 +12,16 @@ ENV JAVA_HOME /usr/java/latest
 ENV CATALINA_HOME /opt/tomcat 
 ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin:$CATALINA_HOME/scripts
 
-# Install Oracle Java15
-ENV JAVA_VERSION 15.0.1
-ENV JAVA_BUILD 15.0.1+9
-ENV JAVA_DL_HASH 51f4f36ad4ef43e39d0dfdbaf6549e32
+# Install Oracle Java17
+ENV JAVA_VERSION 17
 
 RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
- https://edelivery.oracle.com/otn-pub/java/jdk/${JAVA_BUILD}/${JAVA_DL_HASH}/jdk-${JAVA_VERSION}_linux-x64_bin.rpm && \
+ https://download.oracle.com/java/${JAVA_VERSION}/latest/jdk-17_linux-x64_bin.rpm && \
  yum -y localinstall jdk*
-
 
 # Install Tomcat
 ENV TOMCAT_MAJOR 9
-ENV TOMCAT_VERSION 9.0.39
+ENV TOMCAT_VERSION 9.0.54
 
 RUN wget http://mirror.linux-ia64.org/apache/tomcat/tomcat-${TOMCAT_MAJOR}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
  tar -xvf apache-tomcat-${TOMCAT_VERSION}.tar.gz && \

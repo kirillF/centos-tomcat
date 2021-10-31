@@ -1,4 +1,4 @@
-Docker container: CentOS 7 + Java 15 + Tomcat 9
+Docker container: CentOS 7 + Java 17 + Tomcat 9
 
 ## Build the image
 
@@ -27,7 +27,7 @@ If you got error while build the docker image, please check the latest version o
 |Software|Version|Note|
 |:-----------|:------------|:------------|
 |CentOS|7||
-|Java|15.0.1[Java Release Note](https://jdk.java.net/15/release-notes)|
-|Apache Tomcat|9.0.39|[Tomcat Download Page](https://tomcat.apache.org/download-90.cgi)|
+|Java|17 [Java Release Note](https://jdk.java.net/17/release-notes)|
+|Apache Tomcat|9.0.54|[Tomcat Download Page](https://tomcat.apache.org/download-90.cgi)|
 
 [Docker Official Image for Tomcat](https://github.com/docker-library/tomcat) is also available.
